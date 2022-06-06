@@ -1,35 +1,26 @@
 const request = require('request');
 
-const forecast = ({latitude,longitude},callback)=>{
-    // console.log(`${geoResponse.latitude} , ${geoResponse.longitude}`)
+const forecast = ({latitude,longitude,place_name},callback) =>{
     const url = `http://api.weatherstack.com/current?access_key=208f2c5472e2f31fc8b1162ce56b1422&query=${latitude},${longitude}`;
-    console.log(url)
-    let isError = false;
-    request({url,json:true},(error,response)=>{
+    // console.log(url);
+
+    request({url,json:true},(res,err,body)=>{
         try{
-            isError = response.body.error.code===615;
+            const temperature = body.current.temperature;
+            const weather_descriptions = body.current.weather_descriptions;
+        
+            // console.log(temperature);
+            // console.log(weather_descriptions[0]);
+
+            callback(undefined,`Weather for ${place_name} is ${weather_descriptions} and the temperature is ${temperature}`);
         } catch(error){
-           
+            // console.log(body);
+            const displayForError = 'Data not found on provided geographical Location.';
+            // console.log(displayForError)
+
+            callback(displayForError,undefined);
         }
-        console.log(isError)
-        if(isError){
-            callback('Unable to connect to location service',undefined)
-        }
-        else if(response.body.current.length === 0){
-            callback('Unable to find location, try another address!',undefined)
-        }
-        else{
-            // console.log({
-            //     temperature: response.body.current.temperature,
-            //     humidity : response.body.current.humidity
-            //     // Location_Name : response.body.location.name
-            // })
-            callback(undefined,{
-                temperature: response.body.current.temperature,
-                humidity : response.body.current.humidity,
-                Location_Name : response.body.location.name
-            })
-        }
+        
     })
 }
 

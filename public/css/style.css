@@ -1,7 +1,23 @@
-h1{
-    color: red;
+ul{
+    list-style: none;
+    min-width: 500px;
+    min-height: 50px;
+    text-align: left;
+    padding: 10px 5px 5px 5px;
 }
 
-img {
-    width: 300px;
+li{
+    margin: 20px 50px;
+    display: inline;
+}
+
+a{
+    font-size: 25px;
+    color: brown;
+    text-decoration: none;
+
+}
+
+div.header{
+    background-color: gray;
 }
