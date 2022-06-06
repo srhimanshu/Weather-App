@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "geocode.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node src/app.js"
+=======
+    "test": "echo \"Error: no test specified\" && exit 1"
+>>>>>>> a50e6a9cd44838074d9704d30384f27a0272c3c7
   },
   "author": "",
   "license": "ISC",

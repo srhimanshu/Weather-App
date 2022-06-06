@@ -8,7 +8,10 @@ const hbs = require('hbs')
 const dirPath = path.join(__dirname,`../public`);
 const viewsPath = path.join(__dirname,`../templates/views`);
 const partialsPath = path.join(__dirname,`../templates/partials`);
+<<<<<<< HEAD
 const port = process.env.PORT || 3000;
+=======
+>>>>>>> a50e6a9cd44838074d9704d30384f27a0272c3c7
 
 app.set('view engine','hbs');
 app.set('views',viewsPath);
@@ -49,6 +52,10 @@ app.get('/weather',(req,res)=>{
     }
 })
 
+<<<<<<< HEAD
 app.listen(port,()=>{
+=======
+app.listen(3000,()=>{
+>>>>>>> a50e6a9cd44838074d9704d30384f27a0272c3c7
     console.log("Express Server listening to port 3000...")
 })
